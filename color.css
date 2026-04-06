@@ -1,0 +1,122 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY (FONDO Y CENTRADO) */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #2b1055, #6a00f4);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* CARD (CUADRO PRINCIPAL) */
+.caja {
+  background: white;
+  padding: 30px;
+  width: 320px;
+
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* LOGO */
+#imagen-logo {
+  width: 130px;
+  margin: 0 auto 10px;
+}
+
+/* TÍTULO */
+#titulo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* LABELS */
+label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+/* INPUTS */
+input {
+  padding: 10px;
+  margin-bottom: 15px;
+
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* BOTÓN */
+#boton-inicio {
+  padding: 12px;
+  border: none;
+
+  background: #6a00f4;
+  color: white;
+
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+/* HOVER BOTÓN */
+#boton-inicio:hover {
+  background: #4b00b5;
+}
+
+/* LINKS */
+.links {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #6a00f4;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* VOLVER */
+.volver {
+  font-size: 13px;
+  text-decoration: none;
+  color: #6a00f4;
+  margin-bottom: 10px;
+
+  /* lo alinea a la izquierda */
+  align-self: flex-start;
+}
+/* VOLVER */
+.volver {
+  font-size: 13px;
+  text-decoration: none;
+  color: #6a00f4;
+  margin-bottom: 10px;
+
+  /* lo alinea a la izquierda */
+  align-self: flex-start;
+}
+
+/* hover */
+.volver:hover {
+  text-decoration: underline;
+}
+
+#volver-1 {
+  
+
+}

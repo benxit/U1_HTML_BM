@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Recuperar contraseña</title>
+    <link rel="stylesheet" href="revocer.css">
+</head>
+<body>
+
+    <div class="contenedor">
+        <h2>Recuperar contraseña</h2>
+
+        <form>
+
+            <!-- CORREO -->
+            <input 
+                type="email" 
+                placeholder="Ingresa tu correo"
+                required
+                pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|hotmail\.com)$"
+                title="Debe ser un correo válido @gmail.com o @hotmail.com"
+            >
+
+            <!-- MENSAJE ERROR -->
+            <span class="mensaje-error">
+                Ingresa un correo válido (Gmail o Hotmail)
+            </span>
+
+            <!-- MENSAJE ÉXITO -->
+            <span class="mensaje-ok">
+                ✔ Coloque "Enviar codigo" y se le enviara un codigo a su correo.  
+                Si no lo recibes, verifica que lo escribiste correctamente.
+            </span>
+
+            <!-- BOTÓN -->
+            <button type="submit" class="boton">Enviar código</button>
+
+        </form>
+
+        <a href="../index.html" class="volver">← Volver</a>
+    </div>
+
+</body>
+</html>

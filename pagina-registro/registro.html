@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <link rel="stylesheet" href="registro.css">
+</head>
+<body>
+
+    <div class="contenedor">
+        <h2>Registro</h2>
+
+        <form action="../preguntas.html">
+
+            <!-- CORREO -->
+            <input 
+                type="email" 
+                placeholder="Correo electrónico"
+                required
+                pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|hotmail\.com)$"
+                title="Debe ser un correo @gmail.com o @hotmail.com"
+            >
+            <span class="mensaje">Formato incorrecto</span>
+
+            <!-- CONTRASEÑA -->
+            <input 
+                type="password" 
+                placeholder="Contraseña"
+                required
+                minlength="4"
+                title="La contraseña es obligatoria"
+            >
+            <span class="mensaje">Debe ingresar una contraseña</span>
+
+            <!-- BOTÓN -->
+            <button type="submit" class="boton">Registrarse</button>
+
+        </form>
+
+        <a href="../index.html" class="volver">← Volver</a>
+    </div>
+
+</body>
+</html>
