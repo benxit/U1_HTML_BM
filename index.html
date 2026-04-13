@@ -15,19 +15,19 @@
 
         <!-- Título -->
         <h2 id="titulo">Inicio sesion</h2>
-
+        
         <!-- Email -->
         <label>Email:</label>
-        <input type="email" placeholder="Ingrese correo">
+        <input type="email" placeholder="Ingrese correo" required >
 
         <!-- Contraseña -->
         <label>Contraseña:</label>
-        <input type="password" placeholder="Ingresen contraseña">
+        <input type="password" placeholder="Ingresen contraseña" required >
+        <!-- en la seccion la "id: boton inicio" que cuando aprete ingresar vaya a 
+         pagina-usuarios/usuarioweb.html -->
+        <button id="boton-inicio" type="submit" onclick="location.href='pagina-usuarios/usuarioweb.html'">Ingresar</button>
 
-        <!-- Botón -->
-        <button id="boton-inicio">Ingresar</button>
-
-        <!-- Links -->
+        <!-- Links -->+
         <div class="links">
             <a href="pagina-revocer/revocer.html">¿Olvidaste tu contraseña?</a>
             <a href="pagina-registro/registro.html">Registrarse</a>

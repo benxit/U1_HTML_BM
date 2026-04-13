@@ -12,6 +12,28 @@
 
         <form action="../preguntas.html">
 
+            <!-- NOMBRE -->
+            <input 
+                type="text" 
+                placeholder="Nombre"
+                required
+                minlength="2"
+                pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+"
+                title="Solo letras, mínimo 2 caracteres"
+            >
+            <span class="mensaje">Ingrese un nombre válido</span>
+
+            <!-- APELLIDO -->
+            <input 
+                type="text" 
+                placeholder="Apellido"
+                required
+                minlength="2"
+                pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+"
+                title="Solo letras, mínimo 2 caracteres"
+            >
+            <span class="mensaje">Ingrese un apellido válido</span>
+
             <!-- CORREO -->
             <input 
                 type="email" 
@@ -20,7 +42,7 @@
                 pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|hotmail\.com)$"
                 title="Debe ser un correo @gmail.com o @hotmail.com"
             >
-            <span class="mensaje">Formato incorrecto</span>
+            <span class="mensaje">Solo se permite Gmail o Hotmail</span>
 
             <!-- CONTRASEÑA -->
             <input 
