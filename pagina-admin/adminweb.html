@@ -3,153 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Administrador</title>
+    <title>Dashboard Admin</title>
 
     <link rel="stylesheet" href="../pagina-admin/adminweb.css">
 </head>
 
 <body>
 
-    <div class="dashboard">
+<div class="dashboard">
 
-        <!-- Sidebar -->
-        <aside class="sidebar">
+    <!-- Sidebar -->
+    <aside class="sidebar">
 
+        <div>
             <div class="logo">
                 <h2>SportClub</h2>
+                <span>Admin Panel</span>
             </div>
 
             <nav>
                 <ul>
-                    <li class="active">Usuarios</li>
-                    <li>Reportes</li>
-                    <li>Configuración</li>
+                    <li class="active">🏠 Dashboard</li>
+                    <li>👥 Usuarios</li>
+                    <li>📊 Reportes</li>
+                    <li>⚙️ Configuración</li>
                 </ul>
             </nav>
+        </div>
 
-            <a class="btn-logout" href="../index.html" onclick="cerrarSesion()">
-                Cerrar Sesión
-            </a>
+        <button class="btn-logout" onclick="cerrarSesion()">
+            Cerrar Sesión
+        </button>
 
-        </aside>
+    </aside>
 
-        <!-- Main -->
-        <main class="main-content">
+    <!-- MAIN -->
+    <main class="main-content">
 
-            <!-- Header -->
-            <header class="topbar">
+        <!-- TOP -->
+        <header class="topbar">
+            <div>
+                <h1>Bienvenido Administrador</h1>
+                <p>Control total del sistema</p>
+            </div>
 
-                <div>
-                    <h1>Panel Administrador</h1>
-                    <p>Control y gestión del sistema</p>
-                </div>
+            <button class="btn-add" id="toggleFormBtn">
+                + Crear Usuario
+            </button>
+        </header>
 
-                <button class="btn-add" id="toggleFormBtn">
-                    + Nuevo Usuario
-                </button>
+        <!-- FORM -->
+        <div id="formContainer" style="display:none; margin-bottom:20px;">
 
-            </header>
+            <form id="createUserForm">
 
-            <!-- Cards -->
-            <section class="stats">
+                <input type="text" id="full_name" placeholder="Nombre completo" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Contraseña" required>
 
-                <div class="card">
-                    <h3>Usuarios activos</h3>
-                    <p>128</p>
-                </div>
+                <select id="role">
+                    <option value="user">User</option>
+                    <option value="coach">Coach</option>
+                    <option value="admin">Admin</option>
+                </select>
 
-                <div class="card">
-                    <h3>Clases del día</h3>
-                    <p>12</p>
-                </div>
-
-                <div class="card">
-                    <h3>Total Coaches</h3>
-                    <p>8</p>
-                </div>
-
-            </section>
-
-            <!-- Formulario -->
-            <section class="form-container" id="formContainer">
-
-                <h2>Crear Usuario</h2>
-
-                <form id="createUserForm">
-
-                    <input
-                        type="text"
-                        id="full_name"
-                        placeholder="Nombre completo"
-                        required
-                    >
-
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="Correo electrónico"
-                        required
-                    >
-
-                    <select id="role">
-                        <option value="user">Usuario</option>
-                        <option value="coach">Coach</option>
-                        <option value="admin">Administrador</option>
-                    </select>
-
-                    <input
-                        type="password"
-                        id="password"
-                        placeholder="Contraseña"
-                        required
-                    >
-
-                    <button type="submit">
-                        Crear Usuario
-                    </button>
-
-                </form>
+                <button type="submit">Crear usuario</button>
 
                 <p id="message"></p>
 
-            </section>
+            </form>
 
-            <!-- Tabla -->
-            <section class="users-section">
+        </div>
 
-                <div class="section-header">
-                    <h2>Gestión de Usuarios</h2>
-                </div>
+        <!-- TABLE -->
+        <section>
 
-                <div class="table-container">
+            <table border="1" width="100%">
 
-                    <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Rol</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
 
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Email</th>
-                                <th>Rol</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
+                <tbody id="usersTable"></tbody>
 
-                        <tbody id="usersTable">
+            </table>
 
-                        </tbody>
+        </section>
 
-                    </table>
+    </main>
 
-                </div>
+</div>
 
-            </section>
+<script src="../pagina-admin/script.js"></script>
+<!-- MODAL EDITAR USUARIO -->
+<div id="editModal" class="modal">
 
-        </main>
+    <div class="modal-content">
+
+        <h2>Editar Usuario</h2>
+
+        <input type="hidden" id="edit_id">
+
+        <label>Nombre</label>
+        <input type="text" id="edit_name">
+
+        <label>Rol</label>
+        <select id="edit_role">
+            <option value="user">User</option>
+            <option value="coach">Coach</option>
+            <option value="admin">Admin</option>
+        </select>
+
+        <div class="modal-actions">
+
+            <button onclick="guardarEdicion()">Guardar</button>
+            <button onclick="cerrarModal()">Cancelar</button>
+
+        </div>
 
     </div>
 
-    <script src="script.js"></script>
+</div>
 
 </body>
 </html>

@@ -6,183 +6,105 @@ if (!token) {
     window.location.href = '../index.html';
 }
 
-/* Mostrar / ocultar formulario */
-
 const toggleBtn = document.getElementById('toggleFormBtn');
 const formContainer = document.getElementById('formContainer');
 
 toggleBtn.addEventListener('click', () => {
-
-    if (formContainer.style.display === 'block') {
-        formContainer.style.display = 'none';
-    } else {
-        formContainer.style.display = 'block';
-    }
-
+    formContainer.style.display =
+        formContainer.style.display === 'block' ? 'none' : 'block';
 });
-
-/* Cargar usuarios */
 
 async function cargarUsuarios() {
 
     try {
 
         const response = await fetch(`${API_URL}/users`, {
-
             method: 'GET',
-
             headers: {
                 Authorization: `Bearer ${token}`
             }
-
         });
 
         const data = await response.json();
 
-        console.log(data);
+        const users = data.data || data.users || data;
 
         const table = document.getElementById('usersTable');
-
         table.innerHTML = '';
-
-        const users = data.data || data.users || data;
 
         users.forEach(user => {
 
             let roleClass = 'user';
 
-            if (user.role === 'admin') {
-                roleClass = 'admin';
-            }
-
-            else if (user.role === 'coach') {
-                roleClass = 'coach';
-            }
+            if (user.role === 'admin') roleClass = 'admin';
+            else if (user.role === 'coach') roleClass = 'coach';
 
             table.innerHTML += `
-
                 <tr>
-
                     <td>${user.id}</td>
-
                     <td>${user.full_name}</td>
-
                     <td>${user.email}</td>
-
                     <td>
                         <span class="badge ${roleClass}">
                             ${user.role}
                         </span>
                     </td>
-
                     <td>
+                        <button onclick="editarUsuario(${user.id}, '${user.full_name}', '${user.role}')">
+                            Editar
+                        </button>
 
-                        <div class="actions">
-
-                            <button
-                                class="btn-edit"
-                                onclick="editarUsuario(
-                                    ${user.id},
-                                    '${user.full_name}',
-                                    '${user.role}'
-                                )"
-                            >
-                                Editar
-                            </button>
-
-                            <button
-                                class="btn-delete"
-                                onclick="eliminarUsuario(${user.id})"
-                            >
-                                Eliminar
-                            </button>
-
-                        </div>
-
+                        <button onclick="eliminarUsuario(${user.id})">
+                            Eliminar
+                        </button>
                     </td>
-
                 </tr>
-
             `;
-
         });
 
     } catch (error) {
-
-        console.error(error);
-
+        console.error('Error cargando usuarios:', error);
     }
-
 }
 
-/* Crear usuario */
-
 document.getElementById('createUserForm')
-.addEventListener('submit', async function(e) {
+.addEventListener('submit', async (e) => {
 
     e.preventDefault();
 
-    const full_name =
-        document.getElementById('full_name').value;
+    const full_name = document.getElementById('full_name').value;
+    const email = document.getElementById('email').value;
+    const role = document.getElementById('role').value;
+    const password = document.getElementById('password').value;
 
-    const email =
-        document.getElementById('email').value;
-
-    const role =
-        document.getElementById('role').value;
-
-    const password =
-        document.getElementById('password').value;
-
-    const message =
-        document.getElementById('message');
-
-    message.textContent = '';
+    const message = document.getElementById('message');
 
     try {
 
         const response = await fetch(`${API_URL}/users`, {
-
             method: 'POST',
-
             headers: {
-
                 'Content-Type': 'application/json',
-
                 Authorization: `Bearer ${token}`
-
             },
-
             body: JSON.stringify({
-
                 full_name,
                 email,
                 role,
                 password,
                 confirm_password: password
-
             })
-
         });
 
         const data = await response.json();
 
-        console.log(data);
-
         if (!response.ok) {
-
-            message.textContent =
-                data.message || 'Error al crear usuario';
-
+            message.textContent = data.message || 'Error al crear usuario';
             message.style.color = 'red';
-
             return;
-
         }
 
-        message.textContent =
-            'Usuario creado correctamente';
-
+        message.textContent = 'Usuario creado correctamente';
         message.style.color = 'green';
 
         document.getElementById('createUserForm').reset();
@@ -190,121 +112,83 @@ document.getElementById('createUserForm')
         cargarUsuarios();
 
     } catch (error) {
-
         console.error(error);
-
     }
 
 });
-
-/* Eliminar usuario */
-
 async function eliminarUsuario(id) {
 
-    const confirmar = confirm('¿Eliminar usuario?');
-
-    if (!confirmar) return;
+    if (!confirm('¿Eliminar usuario?')) return;
 
     try {
 
         const response = await fetch(`${API_URL}/users/${id}`, {
-
             method: 'DELETE',
-
             headers: {
                 Authorization: `Bearer ${token}`
             }
-
         });
 
         if (!response.ok) {
-
             alert('No se pudo eliminar');
-
             return;
-
         }
 
         cargarUsuarios();
 
     } catch (error) {
-
         console.error(error);
-
     }
-
 }
 
-/* Editar usuario */
 
-async function editarUsuario(id, nombreActual, rolActual) {
+function editarUsuario(id, nombreActual, rolActual) {
 
-    const nuevoNombre = prompt(
-        'Nuevo nombre:',
-        nombreActual
-    );
+    document.getElementById('edit_id').value = id;
+    document.getElementById('edit_name').value = nombreActual;
+    document.getElementById('edit_role').value = rolActual;
 
-    if (!nuevoNombre) return;
+    document.getElementById('editModal').style.display = 'flex';
+}
+async function guardarEdicion() {
 
-    const nuevoRol = prompt(
-        'Nuevo rol (admin, coach, user):',
-        rolActual
-    );
-
-    if (!nuevoRol) return;
+    const id = document.getElementById('edit_id').value;
+    const full_name = document.getElementById('edit_name').value;
+    const role = document.getElementById('edit_role').value;
 
     try {
 
         const response = await fetch(`${API_URL}/users/${id}`, {
-
             method: 'PUT',
-
             headers: {
-
                 'Content-Type': 'application/json',
-
                 Authorization: `Bearer ${token}`
-
             },
-
             body: JSON.stringify({
-
-                full_name: nuevoNombre,
-                role: nuevoRol
-
+                full_name,
+                role
             })
-
         });
 
-        const data = await response.json();
-
-        console.log(data);
-
         if (!response.ok) {
-
-            alert('No se pudo actualizar');
-
+            alert('Error al actualizar');
             return;
-
         }
 
+        cerrarModal();
         cargarUsuarios();
 
     } catch (error) {
-
         console.error(error);
-
     }
-
+}
+function cerrarModal() {
+    document.getElementById('editModal').style.display = 'none';
 }
 
 function cerrarSesion() {
-
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-
     window.location.href = '../index.html';
-
 }
-
 cargarUsuarios();
