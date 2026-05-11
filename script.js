@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'http://localhost:3000/api' ;
+'https://benxit.github.io/U1_HTML_BM/';
 
 document.getElementById("loginForm").addEventListener("submit", async function(e) {
 
