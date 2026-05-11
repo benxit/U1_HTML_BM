@@ -2,51 +2,60 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Admin</title>
-    <link rel="stylesheet" href="adminweb.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrador</title>
+
+    <link rel="stylesheet" href="../pagina-admin/adminweb.css">
 </head>
+
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="logo">⚙️ Admin Panel</div>
+    <div class="dashboard">
 
-        <nav>
-            <a href="#">Usuarios</a>
-            <a href="#">Reportes</a>
-            <a href="#">Configuración</a>
-        </nav>
-    </header>
+        <!-- Sidebar -->
+        <aside class="sidebar">
 
-    <!-- MAIN -->
-    <main>
+            <div class="logo">
+                <h2>SportClub</h2>
+            </div>
 
-        <!-- GESTIÓN DE USUARIOS -->
-        <section>
-            <h2>Gestión de Usuarios</h2>
-            <ul>
-                <li>Juan Pérez - Usuario</li>
-                <li>María López - Coach</li>
-                <li>Carlos Díaz - Admin</li>
-            </ul>
-        </section>
+            <nav>
+                <ul>
+                    <li class="active">Usuarios</li>
+                    <li>Reportes</li>
+                    <li>Configuración</li>
+                </ul>
+            </nav>
 
-        <!-- ESTADÍSTICAS -->
-        <section>
-            <h2>Estadísticas</h2>
-            <p><strong>Total usuarios:</strong> 120</p>
-            <p><strong>Total clases:</strong> 35</p>
-        </section>
+            <a class="btn-logout" href="../index.html" onclick="cerrarSesion()">
+                Cerrar Sesión
+            </a>
 
-        <!-- PANEL DE CONTROL -->
-        <section>
-            <h2>Panel de Control</h2>
+        </aside>
 
-            <div class="cards">
+        <!-- Main -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="topbar">
+
+                <div>
+                    <h1>Panel Administrador</h1>
+                    <p>Control y gestión del sistema</p>
+                </div>
+
+                <button class="btn-add" id="toggleFormBtn">
+                    + Nuevo Usuario
+                </button>
+
+            </header>
+
+            <!-- Cards -->
+            <section class="stats">
 
                 <div class="card">
                     <h3>Usuarios activos</h3>
-                    <p>85</p>
+                    <p>128</p>
                 </div>
 
                 <div class="card">
@@ -55,19 +64,92 @@
                 </div>
 
                 <div class="card">
-                    <h3>Reservas hoy</h3>
-                    <p>40</p>
+                    <h3>Total Coaches</h3>
+                    <p>8</p>
                 </div>
 
-            </div>
-        </section>
+            </section>
 
-        <!-- BOTÓN SIGUIENTE -->
-        <div class="siguiente">
-            <a href="../pagina-coach/coachweb.html" class="boton">Siguiente →</a>
-        </div>
+            <!-- Formulario -->
+            <section class="form-container" id="formContainer">
 
-    </main>
+                <h2>Crear Usuario</h2>
+
+                <form id="createUserForm">
+
+                    <input
+                        type="text"
+                        id="full_name"
+                        placeholder="Nombre completo"
+                        required
+                    >
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Correo electrónico"
+                        required
+                    >
+
+                    <select id="role">
+                        <option value="user">Usuario</option>
+                        <option value="coach">Coach</option>
+                        <option value="admin">Administrador</option>
+                    </select>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Contraseña"
+                        required
+                    >
+
+                    <button type="submit">
+                        Crear Usuario
+                    </button>
+
+                </form>
+
+                <p id="message"></p>
+
+            </section>
+
+            <!-- Tabla -->
+            <section class="users-section">
+
+                <div class="section-header">
+                    <h2>Gestión de Usuarios</h2>
+                </div>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Rol</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="usersTable">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
 
 </body>
 </html>

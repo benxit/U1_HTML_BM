@@ -96,3 +96,17 @@ tr:hover {
 .volver:hover {
     background: #1f2937;
 }
+
+.cerrar-sesion {
+    background: #384531;
+    padding: 8px 25px;
+    margin-left: -900px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.cerrar-sesion:hover {
+    transform: scale(1.08);
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.25);
+}
