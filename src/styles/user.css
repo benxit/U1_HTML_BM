@@ -1,0 +1,210 @@
+/* ==========================================
+   SPORTCLUB - ESTILO AESTHETIC DE USUARIO
+   ========================================== */
+
+:root {
+    --bg-main: #0f172a;        /* Azul oscuro profundo/sofisticado */
+    --bg-card: #1e293b;        /* Gris azulado para tarjetas */
+    --accent-neon: #10b981;    /* Verde esmeralda deportivo/energético */
+    --accent-hover: #059669;   /* Verde más oscuro para hovers */
+    --text-main: #f8fafc;      /* Blanco limpio */
+    --text-muted: #94a3b8;     /* Gris suave para textos secundarios */
+    --sidebar-bg: #111827;     /* Fondo del sidebar oscuro */
+}
+
+body {
+    background-color: var(--bg-main);
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+}
+
+.user-layout {
+    display: flex;
+    min-height: 100vh;
+    background: var(--bg-main);
+}
+
+/* Sidebar Estilizado */
+.user-sidebar {
+    width: 270px;
+    background: var(--sidebar-bg);
+    padding: 30px 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 4px 0 25px rgba(0, 0, 0, 0.3);
+}
+
+.user-logo {
+    color: var(--accent-neon);
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+}
+
+.user-sidebar a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.user-sidebar a:hover {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--accent-neon);
+    transform: translateX(5px);
+}
+
+/* Contenedor Principal y Header */
+.user-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-header {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 20px 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-main);
+}
+
+.logout-btn {
+    background: transparent;
+    border: 2px solid #ef4444;
+    color: #ef4444;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.logout-btn:hover {
+    background: #ef4444;
+    color: white;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+}
+
+.user-main {
+    padding: 40px;
+    color: var(--text-main);
+}
+
+/* Elementos del Dashboard */
+.dashboard-title {
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+}
+
+.welcome-card {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: var(--accent-neon);
+}
+
+.welcome-card h2 {
+    color: var(--text-main);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.welcome-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Grilla de Tarjetas */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.dashboard-card {
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+.dashboard-card h4 {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.dashboard-card h2 {
+    color: var(--accent-neon);
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.dashboard-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Tarjeta de Información Inferior */
+.info-card {
+    margin-top: 35px;
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.info-card h3 {
+    color: var(--text-main);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.info-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+}

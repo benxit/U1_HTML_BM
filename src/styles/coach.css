@@ -1,0 +1,100 @@
+/* ==========================================
+   SPORTCLUB - ESTILO AESTHETIC DE COACH
+   ========================================== */
+
+:root {
+    --bg-coach: #0b0f19;       /* Fondo oscuro profundo */
+    --card-coach: #171e2e;     /* Tarjetas oscuras elegantes */
+    --accent-coach: #3b82f6;   /* Azul eléctrico/deportivo para el Coach */
+    --text-light: #f8fafc;
+    --text-dim: #94a3b8;
+}
+
+/* Aplicar fondo general si este dashboard ocupa la pantalla */
+.container-fluid {
+    background-color: var(--bg-coach);
+    min-height: 100vh;
+    padding: 40px !important;
+    color: var(--text-light);
+    font-family: 'Poppins', system-ui, sans-serif;
+}
+
+/* Título */
+h1.mb-4 {
+    font-weight: 800;
+    color: var(--text-light);
+    letter-spacing: -0.5px;
+    margin-bottom: 35px !important;
+}
+
+/* Sobrescribir Tarjetas de Bootstrap para hacerlas "Aesthetic" */
+.card.shadow {
+    background: var(--card-coach) !important;
+    border: 1px solid rgba(255, 255, 255, 0.03) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.card.shadow:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.15) !important;
+    border-color: rgba(59, 130, 246, 0.2) !important;
+}
+
+.card-body {
+    padding: 30px !important;
+}
+
+/* Títulos de contadores */
+.card-body h5 {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Números de contadores */
+.card-body h2 {
+    color: var(--accent-coach);
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+/* Tarjeta de Resumen Inferior (Graerfdgtfhgtyjnde) */
+.mt-4.card.shadow {
+    margin-top: 35px !important;
+    position: relative;
+}
+
+.mt-4.card.shadow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-coach), #60a5fa);
+}
+
+.mt-4 .card-body h4 {
+    color: var(--text-light);
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.mt-4 .card-body p {
+    color: var(--text-dim);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.mt-4 .card-body p:last-child {
+    margin-bottom: 0;
+}

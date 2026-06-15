@@ -1,0 +1,95 @@
+.navbar-custom {
+    background-color: #111111;
+}
+
+.hero-section {
+    min-height: 90vh;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.75)
+        ),
+        url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1920");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+.stats-section {
+    background-color: #111111;
+    padding: 60px 0;
+}
+
+.stat-card {
+    color: white;
+}
+
+.stat-card h2 {
+    color: #d4af37;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.features-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: bold;
+}
+
+.feature-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+}
+
+.feature-card h3 {
+    font-size: 3rem;
+}
+
+.about-section {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.about-text {
+    max-width: 800px;
+    margin: auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.footer {
+    background-color: #111111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}

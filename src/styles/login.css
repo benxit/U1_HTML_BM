@@ -1,0 +1,71 @@
+.login-page {
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.85),
+            rgba(0, 0, 0, 0.85)
+        ),
+        url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1920");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.login-card {
+    width: 450px;
+
+    background: #111111;
+    color: white;
+
+    border: 1px solid #d4af37;
+    border-radius: 20px;
+}
+
+.logo-section {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-logo {
+    width: 260px;
+    max-width: 100%;
+    margin-bottom: 15px;
+}
+
+.login-subtitle {
+    color: #cccccc;
+    margin-bottom: 20px;
+}
+
+.form-label {
+    color: white;
+}
+
+.form-control {
+    background-color: #1c1c1c;
+    color: white;
+    border: 1px solid #444;
+}
+
+.form-control:focus {
+    background-color: #1c1c1c;
+    color: white;
+    border-color: #d4af37;
+
+    box-shadow:
+        0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.login-btn {
+    background-color: #d4af37;
+    border: none;
+
+    color: black;
+    font-weight: bold;
+}
+
+.login-btn:hover {
+    background-color: #e7c55b;
+    color: black;
+}
