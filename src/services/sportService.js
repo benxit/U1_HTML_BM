@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/api/sport";
+const API_URL = `${import.meta.env.VITE_API_URL}/sports`;
 
 function getToken() {
   return localStorage.getItem("token");
@@ -63,3 +63,7 @@ export async function toggleSportStatus(id, status) {
   if (!response.ok) throw new Error(data.message || "Error al cambiar estado");
   return data;
 }
+
+
+
+

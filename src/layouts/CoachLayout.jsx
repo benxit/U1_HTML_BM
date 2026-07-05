@@ -32,6 +32,10 @@ function CoachLayout() {
           Mis Clases
         </Link>
 
+        <Link to="/coach/schedule">
+          Mi Horario
+        </Link>
+
         <Link to="/coach/students">
           Mis Alumnos
         </Link>
@@ -68,3 +72,4 @@ function CoachLayout() {
 }
 
 export default CoachLayout;
+

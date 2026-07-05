@@ -31,7 +31,11 @@ function UserLayout() {
         </Link>
 
         <Link to="/user/classes">
-          Mis Clases
+          Clases Disponibles
+        </Link>
+
+        <Link to="/user/reservations">
+          Mis Reservas
         </Link>
 
         <Link to="/user/profile">
@@ -74,3 +78,4 @@ function UserLayout() {
 }
 
 export default UserLayout;
+

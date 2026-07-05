@@ -36,8 +36,16 @@ function AdminLayout() {
           Coaches
         </Link>
 
+        <Link to="/admin/rooms">
+          Salas
+        </Link>
+
+        <Link to="/admin/assignments">
+          Asignaciones
+        </Link>
+
         <Link to="/admin/classes">
-          Clases
+          Horarios
         </Link>
 
     
@@ -81,3 +89,5 @@ function AdminLayout() {
 }
 
 export default AdminLayout;
+
+
