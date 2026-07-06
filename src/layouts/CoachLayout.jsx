@@ -1,17 +1,23 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { logout } from "../services/authService";
 
 function CoachLayout() {
 
   const navigate = useNavigate();
 
-  function handleLogout() {
+  async function handleLogout() {
 
-    const confirmLogout = window.confirm(
-      "¿Desea cerrar sesión?"
-    );
+    const result = await Swal.fire({
+      title: "¿Cerrar sesión?",
+      text: "Deberás iniciar sesión nuevamente para acceder.",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: "Sí, cerrar sesión",
+      cancelButtonText: "Cancelar"
+    });
 
-    if (!confirmLogout) return;
+    if (!result.isConfirmed) return;
 
     logout();
     navigate("/");
@@ -72,4 +78,3 @@ function CoachLayout() {
 }
 
 export default CoachLayout;
-

@@ -1,16 +1,22 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { logout } from "../services/authService";
 import "../styles/admin.css";
 
 function AdminLayout() {
   const navigate = useNavigate();
 
-  function handleLogout() {
-    const confirmLogout = window.confirm(
-      "¿Está seguro de que desea cerrar sesión?"
-    );
+  async function handleLogout() {
+    const result = await Swal.fire({
+      title: "¿Cerrar sesión?",
+      text: "Deberás iniciar sesión nuevamente para acceder.",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: "Sí, cerrar sesión",
+      cancelButtonText: "Cancelar"
+    });
 
-    if (!confirmLogout) return;
+    if (!result.isConfirmed) return;
 
     logout();
 
@@ -53,6 +59,10 @@ function AdminLayout() {
           Deportes
         </Link>
 
+        <Link to="/admin/profile">
+          Mi Perfil
+        </Link>
+
       </aside>
 
       <div className="admin-content">
@@ -63,9 +73,12 @@ function AdminLayout() {
 
           <div className="header-buttons">
 
-            <button className="profile-btn">
+            <Link
+              to="/admin/profile"
+              className="profile-btn"
+            >
               Mi Perfil
-            </button>
+            </Link>
 
             <button
               className="logout-btn"
@@ -89,5 +102,3 @@ function AdminLayout() {
 }
 
 export default AdminLayout;
-
-
